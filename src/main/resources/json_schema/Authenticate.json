@@ -1,0 +1,95 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "meta",
+    "notifications",
+    "response"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "title": "The Meta Schema",
+      "required": [
+        "code",
+        "response_time",
+        "init_time"
+      ],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "title": "The Code Schema"
+        },
+        "response_time": {
+          "type": "object",
+          "title": "The Response_time Schema",
+          "required": [
+            "time",
+            "measure"
+          ],
+          "properties": {
+            "time": {
+              "type": "number",
+              "title": "The Time Schema"
+            },
+            "measure": {
+              "type": "string",
+              "title": "The Measure Schema",
+              "pattern": "^(.*)$"
+            }
+          }
+        },
+        "init_time": {
+          "type": "object",
+          "title": "The Init_time Schema",
+          "required": [
+            "time",
+            "measure"
+          ],
+          "properties": {
+            "time": {
+              "type": "integer",
+              "title": "The Time Schema"
+            },
+            "measure": {
+              "type": "string",
+              "title": "The Measure Schema",
+              "pattern": "^(.*)$"
+            }
+          }
+        }
+      }
+    },
+    "notifications": {
+      "type": "array",
+      "title": "The Notifications Schema"
+    },
+    "response": {
+      "type": "object",
+      "title": "The Response Schema",
+      "required": [
+        "two_factor_enabled",
+        "access_token",
+        "default_load"
+      ],
+      "properties": {
+        "two_factor_enabled": {
+          "type": "integer",
+          "title": "The Two_factor_enabled Schema"
+        },
+        "access_token": {
+          "type": "string",
+          "title": "The Access_token Schema",
+          "pattern": "^(.*)$",
+          "minLength": 1
+        },
+        "default_load": {
+          "type": "boolean",
+          "title": "The Default_load Schema"
+        }
+      }
+    }
+  }
+}
