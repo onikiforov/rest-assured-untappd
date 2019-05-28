@@ -10,7 +10,7 @@ API docs: https://untappd.com/api/docs
 This example is based on the API fetched from Untappd iOS app.
 
 To run the tests, first you need to complete config:
-* Get client_id and client_secret values and put them into `env.properties` file. 
+* Get client_id and client_secret values from Untappd mobile app using sniffers and put them into `env.properties` file. 
 * Create user, and put username and password into `testdata.properties` file.
 
 Run tests with command `./gradlew clean test -Denvironment="dev"`, where environment argument should be "prod" to use production env.properties file, or anything else to use development env.properties file.
