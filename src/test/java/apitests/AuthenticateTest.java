@@ -66,7 +66,9 @@ class AuthenticateTest extends BaseAPITest {
 
     @Test
     void authenticateWithValidCredsTestAssertStatusCode() {
+        // Send request and get Response object
         Response response = authenticate(nonAuthenticatedRequestSpec, username, password, appVersion, deviceName, devicePlatform, deviceVersion, existingDevice);
+        // Assert that status code is 200
         response.then().statusCode(200);
     }
 
@@ -84,6 +86,30 @@ class AuthenticateTest extends BaseAPITest {
     void authenticateWithValidCredsTestAssertTokenByJsonPath() {
         Response response = authenticate(nonAuthenticatedRequestSpec, username, password, appVersion, deviceName, devicePlatform, deviceVersion, existingDevice);
         response.then().statusCode(200);
+
+        /* Response JSON is:
+        {
+            "meta": {
+                "code": 200,
+                "response_time": {
+                    "time": 0.076,
+                    "measure": "seconds"
+                },
+                "init_time": {
+                    "time": 0,
+                    "measure": "seconds"
+                }
+            },
+            "notifications": [
+        
+            ],
+            "response": {
+                "two_factor_enabled": 0,
+                "access_token": "someTokenString",
+                "default_load": false
+            }
+        }
+         */
 
         assertThat(response.body().path("response.access_token"), is(notNullValue()));
     }

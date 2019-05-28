@@ -28,7 +28,7 @@ public class UntappdAPIRequests {
                 // Add content type header
                 .contentType(ContentType.URLENC.withCharset("UTF-8"))
                 // Add Form URL-Encoded parameters
-                .formParam("app_verison", appVersion)
+                .formParam("app_version", appVersion)
                 .formParam("device_name", deviceName)
                 .formParam("device_platform", devicePlatform)
                 .formParam("device_version", deviceVersion)
